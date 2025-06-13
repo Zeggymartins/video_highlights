@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: video-highlights-api
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app.main:app"
+    envVars:
+      - key: FRONT_APP_URL
+        value: https://your-frontend-host.com
+      - key: APP_URL
+        value: https://video-highlights-api.onrender.com
